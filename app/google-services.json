@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1799613296",
+    "project_id": "smartque-c9b53",
+    "storage_bucket": "smartque-c9b53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1799613296:android:6c8ae10e2c1abdc4a33db5",
+        "android_client_info": {
+          "package_name": "com.example.smartque"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1799613296-fqpmqn854snteglflp289gpi0ib4eqmf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPULX4sd6ekIC7yuJlDEUCh1HVyC0e9sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1799613296-fqpmqn854snteglflp289gpi0ib4eqmf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

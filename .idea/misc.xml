@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/baseline_logout_24.xml" value="0.1925" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/button_cancel_bg.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_apps_24.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_circle_notifications_24.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_contact_support_24.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_dark_mode_24.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/profile.xml" value="0.2115" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/content_main.xml" value="0.1858974358974359" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_details.xml" value="0.153125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_first.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_home.xml" value="0.18" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_login.xml" value="0.21" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_second.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_sign_up.xml" value="0.1675213675213675" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_support.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/menu/menu_main.xml" value="0.1675213675213675" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
