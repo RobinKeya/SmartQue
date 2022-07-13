@@ -53,4 +53,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//        //Check if user is signed in.
+//        val currentUser = auth.currentUser
+//        if(currentUser !=null){
+//            reload()
+//        }
+//    }
 }
