@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
     ): View? {
         initViews()
         auth = Firebase.auth
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
 
     }

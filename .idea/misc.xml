@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_settings.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_support.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/baseline_logout_24.xml" value="0.1925" />
