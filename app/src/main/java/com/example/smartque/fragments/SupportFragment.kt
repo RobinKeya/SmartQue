@@ -1,6 +1,7 @@
 package com.example.smartque.fragments
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.ContactsContract.Intents.Insert.ACTION
@@ -23,7 +24,7 @@ class SupportFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         initViews()
         _binding= FragmentSupportBinding.inflate(inflater)
@@ -33,7 +34,7 @@ class SupportFragment : Fragment() {
     private fun initViews() {
         binding.callBtn.setOnClickListener {
             val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.putExtra("number", 716943633)
+            callIntent.data = Uri.parse("tel:"+254716943633)
             startActivity(callIntent)
         }
     }

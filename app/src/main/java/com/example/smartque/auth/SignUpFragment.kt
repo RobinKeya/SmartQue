@@ -26,7 +26,7 @@ class SignUpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding= FragmentSignUpBinding.inflate(inflater,container,false)
         initViews()
@@ -44,40 +44,69 @@ class SignUpFragment : Fragment() {
     }
 
     private fun confirmDetails() {
-        val name = binding.profileName.editText?.toString()
-        val email = binding.email.editText?.toString()
-        val password = binding.password.editText?.toString()
-        val confirmPassword= binding.confirmPassword.editText.toString()
-        if(name.isNullOrBlank() || email.isNullOrBlank() || email.isNullOrBlank() ||
-            password.isNullOrBlank() || confirmPassword.isNullOrBlank()){
-            Toast.makeText(requireContext(),"All fields must be filled",Toast.LENGTH_LONG).show()
+        showDialog()
+        val name = binding.profileName.editText?.text.toString()
+        val email = binding.email.editText?.text.toString()
+        val password = binding.password.editText?.text.toString()
+        val confirmPassword= binding.confirmPassword.editText?.text.toString()
+        if(name.isBlank() || email.isBlank() || email.isBlank() ||
+            password.isBlank() || confirmPassword.isBlank()){
+                hideDialog()
+            Toast.makeText(requireContext(),"All fields must be filled",Toast.LENGTH_LONG)
+                .show()
         }else{
             if (passwordMatch(password, confirmPassword) && validateEmail(email)){
                 //save user, in the db then sign in.
-                signIn(email, password)
+                registerUser(email, password)
+            }else{
+                Toast.makeText(requireContext(),"Password doen't match",Toast.LENGTH_SHORT).show()
+                hideDialog()
             }
         }
 
     }
 
-    private fun signIn(email: String, password: String) {
+    private fun registerUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{task->
                 if(task.isSuccessful){
-                    val user = auth.currentUser
-                    this.findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToHomeFragment())
+                        sendVerificationEmail()
+                    hideDialog()
+                    this.findNavController().navigate(SignUpFragmentDirections
+                        .actionSignUpFragmentToLoginFragment())
                 }
             }
             .addOnFailureListener{e->
-                Toast.makeText(requireContext(),"${e.localizedMessage}",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), e.localizedMessage,Toast.LENGTH_LONG).show()
             }
     }
 
-    private fun passwordMatch(pswd: String, cpswd: String):Boolean{
-        return pswd.equals(cpswd)
+    private fun passwordMatch(password: String, confirmPassword: String):Boolean{
+        return password == confirmPassword
     }
     private fun validateEmail(email:String): Boolean{
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+    private fun showDialog(){
+        binding.progressbar.visibility = View.VISIBLE
+    }
+    private fun hideDialog(){
+        if(binding.progressbar.visibility ==View.VISIBLE){
+            binding.progressbar.visibility = View.INVISIBLE
+        }
+    }
+    private fun sendVerificationEmail(){
+        val user =auth.currentUser
+        user?.sendEmailVerification()?.addOnCompleteListener(){ task->
+            if(task.isSuccessful){
+                //Todo -> Implicit intent to gmail or other mailing services.
+                Toast.makeText(requireContext(),"Email verification Sent",
+                    Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(requireContext(), "Failed to send Verification link",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 }

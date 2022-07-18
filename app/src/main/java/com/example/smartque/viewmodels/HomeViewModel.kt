@@ -14,9 +14,6 @@ class HomeViewModel: ViewModel() {
     }
 
     fun onCardClick(x: Int){
-        //Figure out a way to use this function.
         _value.value = x
     }
-
-
 }

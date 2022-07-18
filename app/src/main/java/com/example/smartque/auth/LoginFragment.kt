@@ -1,25 +1,15 @@
 package com.example.smartque.auth
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.smartque.databinding.FragmentLoginBinding
-
 import com.example.smartque.R
+import com.example.smartque.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -32,12 +22,38 @@ class LoginFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
+    private var authState = FirebaseAuth.AuthStateListener{firebaseAuth->
+        val user =firebaseAuth.currentUser
+        if(user!=null){
+            if (user.isEmailVerified){
+                this.findNavController().navigate(LoginFragmentDirections
+                    .actionLoginFragmentToHomeFragment())
+            }else{
+                Toast.makeText(requireContext(),"Please verify your email",Toast.LENGTH_SHORT)
+                    .show()
+                firebaseAuth.signOut()
+            }
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        FirebaseAuth.getInstance().addAuthStateListener(authState)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (authState !=null){
+            FirebaseAuth.getInstance().removeAuthStateListener(authState)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         initViews()
         auth = Firebase.auth
         _binding = FragmentLoginBinding.inflate(inflater)
@@ -55,15 +71,20 @@ class LoginFragment : Fragment() {
     }
 
     private fun confirmDetails() {
-        val email = binding.email.editText?.toString()
-        val password = binding.password.editText?.toString()
-        if(email.isNullOrBlank() || email.isNullOrBlank() ||
-            password.isNullOrBlank()){
-            Toast.makeText(requireContext(),"All fields must be filled",Toast.LENGTH_LONG).show()
+        showDialog()
+        val email = binding.email.editText?.text.toString()
+        val password = binding.password.editText?.text.toString()
+        if(email.isBlank() || email.isBlank() ||
+            password.isBlank()){
+            Toast.makeText(requireContext(),"All fields must be filled",Toast.LENGTH_LONG)
+                .show()
         }else{
             if (validateEmail(email)){
                 //save user, in the db then sign in.
                 signIn(email, password)
+            }else{
+                hideDialog()
+                Toast.makeText(requireContext(), "Invalid email",Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -77,17 +98,24 @@ class LoginFragment : Fragment() {
        auth.signInWithEmailAndPassword(email,password)
            .addOnCompleteListener{task->
                if (task.isSuccessful){
-                   val user = auth.currentUser
-                   //navigate home.
-                   this.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                   //val user = auth.currentUser
+                   hideDialog()
                }
            }
            .addOnFailureListener{e->
-               Toast.makeText(requireContext(),"${e.localizedMessage}", Toast.LENGTH_LONG).show()
+               Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_LONG).show()
            }
     }
 
     private fun validateEmail(email:String): Boolean{
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+    private fun showDialog(){
+        binding.progressbar.visibility = View.VISIBLE
+    }
+    private fun hideDialog(){
+        if(binding.progressbar.visibility ==View.VISIBLE){
+            binding.progressbar.visibility = View.INVISIBLE
+        }
     }
 }

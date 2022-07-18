@@ -24,31 +24,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_spacing"
-            android:layout_marginEnd="@dimen/normal_spacing"
-            android:layout_marginTop="@dimen/medium_spacing">
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_marginEnd="@dimen/normal_spacing">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
+                android:background="@drawable/edittext_background"
                 android:hint="@string/email"
-                android:background="@drawable/edittext_background"/>
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/password"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/normal_spacing"
-    android:layout_marginEnd="@dimen/normal_spacing"
-    android:layout_marginTop="@dimen/normal_spacing"
-    app:passwordToggleEnabled="true">
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:background="@drawable/edittext_background"/>
-</com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/normal_spacing"
+            android:layout_marginTop="@dimen/normal_spacing"
+            android:layout_marginEnd="@dimen/normal_spacing"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_background"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/login_btn"
             style="@style/Widget.AppCompat.Button"
@@ -62,10 +65,19 @@
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
 
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/forgot_pswd"
@@ -92,33 +104,33 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_spacing"
+        android:clickable="true"
+        android:focusable="true"
         android:text="@string/signup"
         android:textSize="18sp"
-        android:focusable="true"
-        android:clickable="true"
-        android:layout_marginStart="@dimen/small_spacing"
         app:layout_constraintStart_toEndOf="@id/to_sign_up"
-        app:layout_constraintTop_toTopOf="@id/to_sign_up"/>
+        app:layout_constraintTop_toTopOf="@id/to_sign_up" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="231dp"
         android:layout_height="156dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/big_circle"
-        android:contentDescription="@string/logo"/>
+        app:srcCompat="@drawable/big_circle" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:textStyle="bold"
         android:text="@string/log_in"
         android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
