@@ -19,24 +19,20 @@
             android:layout_height="wrap_content"
             android:text="@string/hi"
             android:textSize="24sp"
+            android:textColor="#ffffff"
             android:layout_marginTop="64dp"
             android:layout_marginStart="@dimen/normal_spacing"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Ruth"
-            android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/hi"
-            app:layout_constraintTop_toTopOf="@+id/hi"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="You're in Deposit Queue"
             android:text="@string/que_in"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
             android:layout_marginBottom="@dimen/medium_spacing"
             android:layout_marginStart="@dimen/normal_spacing"
             android:layout_marginTop="@dimen/normal_spacing"
@@ -48,84 +44,93 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/normal_spacing"
+        android:layout_height="0dp"
         android:layout_margin="@dimen/normal_spacing"
+        app:cardCornerRadius="@dimen/normal_spacing"
         app:cardElevation="@dimen/small_spacing"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_constraint_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/ticket_number_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ticket Number : "
-                android:textSize="22sp"
                 android:layout_marginStart="@dimen/medium_spacing"
                 android:layout_marginTop="64dp"
+                android:text="@string/ticket_number"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
+                android:id="@+id/ticket_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100B"
-                android:textSize="22sp"
                 android:layout_marginStart="@dimen/small_spacing"
+                android:text="@string/_100b"
+                android:textSize="22sp"
                 app:layout_constraintStart_toEndOf="@+id/ticket_number_tv"
-                app:layout_constraintTop_toTopOf="@+id/ticket_number_tv"/>
+                app:layout_constraintTop_toTopOf="@+id/ticket_number_tv" />
 
             <TextView
                 android:id="@+id/number_in_q_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number in Queue:"
                 android:layout_marginStart="@dimen/medium_spacing"
-                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginTop="48dp"
+                android:text="@string/number_in_queue"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ticket_number_tv"/>
+                app:layout_constraintTop_toBottomOf="@+id/ticket_number_tv" />
+
             <TextView
+                android:id="@+id/number_in_q"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"
-                android:textSize="22sp"
                 android:layout_marginStart="@dimen/small_spacing"
+                android:text="@string/_4"
+                android:textSize="22sp"
                 app:layout_constraintStart_toEndOf="@+id/number_in_q_tv"
-                app:layout_constraintTop_toTopOf="@+id/number_in_q_tv"/>
+                app:layout_constraintTop_toTopOf="@+id/number_in_q_tv" />
+
             <TextView
                 android:id="@+id/appr_time_in_q_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Approximate time in Queue :"
-                android:textSize="22sp"
                 android:layout_marginStart="@dimen/medium_spacing"
-                android:layout_marginTop="@dimen/medium_spacing"
+                android:layout_marginTop="48dp"
+                android:text="@string/approximate_time_in_queue"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/number_in_q_tv"/>
+                app:layout_constraintTop_toBottomOf="@id/number_in_q_tv" />
+
             <TextView
+                android:id="@+id/time_in_q"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
-                android:textSize="22sp"
                 android:layout_marginStart="@dimen/small_spacing"
+                android:text="@string/_10"
+                android:textSize="22sp"
                 app:layout_constraintStart_toEndOf="@id/appr_time_in_q_tv"
-                app:layout_constraintTop_toTopOf="@id/appr_time_in_q_tv"/>
+                app:layout_constraintTop_toTopOf="@id/appr_time_in_q_tv" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:textAllCaps="false"
-                android:background="@drawable/button_cancel_bg"
                 android:layout_margin="@dimen/medium_spacing"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/button_cancel_bg"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appr_time_in_q_tv"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appr_time_in_q_tv" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

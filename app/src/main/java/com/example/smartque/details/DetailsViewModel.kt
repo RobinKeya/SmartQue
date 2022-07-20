@@ -5,9 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.smartque.R
+import com.google.firebase.auth.FirebaseAuth
+import java.util.concurrent.TimeUnit
 
 class DetailsViewModel(val value: Int,val application: Application) {
-    val serviceList = arrayOf("Deposit,","Withdraw","Loans", "Account", "Opening", "Inquiries", "Insurance")
+    //private var time = System.currentTimeMillis()
+    //private val timeInHours = TimeUnit.MILLISECONDS.toHours(time)
+    //private val auth = FirebaseAuth.getInstance().currentUser
     private val _selectedCard = MutableLiveData<Int>()
     val selectedCard : LiveData<Int>
     get() = _selectedCard
