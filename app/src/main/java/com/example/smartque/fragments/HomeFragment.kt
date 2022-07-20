@@ -1,17 +1,19 @@
 package com.example.smartque.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.smartque.databinding.FragmentHomeBinding
 import com.example.smartque.viewmodels.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 /**
@@ -39,6 +41,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        initViews()
         auth = Firebase.auth
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -59,6 +62,20 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    private fun initViews() {
+        val name = binding.profileName
+        val email = binding.profileEmail
+        val db = FirebaseFirestore.getInstance()
+        val userReference = db.collection("user")
+        val uid = auth.currentUser?.uid
+        userReference.document(uid!!).get().addOnCompleteListener{task->
+            if (task.isSuccessful){
+                val data = task.result.data
+            }
+
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -71,9 +88,7 @@ class HomeFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        if (authState != null){
             FirebaseAuth.getInstance().removeAuthStateListener(authState)
-        }
     }
 
     override fun onDestroyView() {

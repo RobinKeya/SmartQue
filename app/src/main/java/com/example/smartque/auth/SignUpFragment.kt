@@ -10,8 +10,10 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.smartque.R
 import com.example.smartque.databinding.FragmentSignUpBinding
+import com.example.smartque.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -57,7 +59,7 @@ class SignUpFragment : Fragment() {
         }else{
             if (passwordMatch(password, confirmPassword) && validateEmail(email)){
                 //save user, in the db then sign in.
-                registerUser(email, password)
+                registerUser(name,email, password)
             }else{
                 Toast.makeText(requireContext(),"Password doen't match",Toast.LENGTH_SHORT).show()
                 hideDialog()
@@ -66,17 +68,41 @@ class SignUpFragment : Fragment() {
 
     }
 
-    private fun registerUser(email: String, password: String) {
+    private fun registerUser(name: String,email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{task->
                 if(task.isSuccessful){
-                        sendVerificationEmail()
-                    hideDialog()
-                    this.findNavController().navigate(SignUpFragmentDirections
-                        .actionSignUpFragmentToLoginFragment())
+                    sendVerificationEmail()
+                    saveUser(name, email)
                 }
             }
             .addOnFailureListener{e->
+                Toast.makeText(requireContext(), e.localizedMessage,Toast.LENGTH_LONG).show()
+            }
+    }
+
+    private fun saveUser(name: String, email:String) {
+        val db =FirebaseFirestore.getInstance()
+        val userReference = db.collection("user")
+        val uid = if(auth.currentUser != null){
+            auth.currentUser?.uid
+        }else null
+
+        val user = User(uid,name,email)
+        userReference.document(uid!!).set(user)
+            .addOnCompleteListener{ task->
+                if (task.isSuccessful){
+                    Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
+                    hideDialog()
+                    FirebaseAuth.getInstance().signOut()
+                    this.findNavController().navigate(SignUpFragmentDirections
+                        .actionSignUpFragmentToLoginFragment())
+                }else{
+                    Toast.makeText(requireContext(),"Failed to Sign up Users",Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener{e->
+                hideDialog()
+                FirebaseAuth.getInstance().signOut()
                 Toast.makeText(requireContext(), e.localizedMessage,Toast.LENGTH_LONG).show()
             }
     }
