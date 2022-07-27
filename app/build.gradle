@@ -24,6 +24,19 @@ buildFeatures{
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    flavorDimentions "user"
+//    productFlavors{
+//        admin{
+//            dimention "user"
+//            manifestPlaceholders = [appLabel : "SmartQue Admnin"]
+//            applicationIdSuffix ".admin"
+//        }
+//        customer{
+//            dimention "user"
+//            manifestPlaceholders = [appLabel : "SmartQue"]
+//            applicationIdSuffix ".customer"
+//        }
+//    }
 
     buildTypes {
         release {

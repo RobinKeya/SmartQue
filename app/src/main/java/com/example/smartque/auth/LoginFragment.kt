@@ -10,8 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.smartque.R
 import com.example.smartque.databinding.FragmentLoginBinding
+import com.example.smartque.helper.Constant
+import com.example.smartque.helper.PrefHelper
+import com.example.smartque.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
@@ -22,41 +26,16 @@ class LoginFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
-    private var authState = FirebaseAuth.AuthStateListener{firebaseAuth->
-        val user =firebaseAuth.currentUser
-        if(user!=null){
-            if (user.isEmailVerified){
-                this.findNavController().navigate(LoginFragmentDirections
-                    .actionLoginFragmentToHomeFragment())
-            }else{
-                Toast.makeText(requireContext(),"Please verify your email",Toast.LENGTH_SHORT)
-                    .show()
-                firebaseAuth.signOut()
-            }
-        }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        FirebaseAuth.getInstance().addAuthStateListener(authState)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        if (authState !=null){
-            FirebaseAuth.getInstance().removeAuthStateListener(authState)
-        }
-    }
-
+    private lateinit var prefHelper: PrefHelper
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        initViews()
-        auth = Firebase.auth
         _binding = FragmentLoginBinding.inflate(inflater)
+        auth = Firebase.auth
+        initViews()
+        prefHelper = PrefHelper(requireContext())
         return binding.root
 
     }
@@ -66,21 +45,22 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
         binding.loginBtn.setOnClickListener{
+            showDialog()
             confirmDetails()
         }
     }
 
     private fun confirmDetails() {
-        showDialog()
         val email = binding.email.editText?.text.toString()
         val password = binding.password.editText?.text.toString()
         if(email.isBlank() || email.isBlank() ||
             password.isBlank()){
+            hideDialog()
             Toast.makeText(requireContext(),"All fields must be filled",Toast.LENGTH_LONG)
                 .show()
+
         }else{
             if (validateEmail(email)){
-                //save user, in the db then sign in.
                 signIn(email, password)
             }else{
                 hideDialog()
@@ -98,13 +78,32 @@ class LoginFragment : Fragment() {
        auth.signInWithEmailAndPassword(email,password)
            .addOnCompleteListener{task->
                if (task.isSuccessful){
-                   //val user = auth.currentUser
+                   //save user's details in shared pre, navigate to home.
+                       val uid = auth.currentUser?.uid!!
+                   getUser(uid)
                    hideDialog()
+                       findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
                }
            }
            .addOnFailureListener{e->
                Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_LONG).show()
            }
+    }
+
+    private fun getUser(uid:String) {
+        val db = FirebaseFirestore.getInstance()
+        val userRef = db.collection("users").document(uid)
+        userRef.get().addOnSuccessListener {documentSnapshot->
+            if(documentSnapshot.exists()) {
+                val user = documentSnapshot.toObject(User::class.java)
+                if(user !=null){
+                    user.name?.let { prefHelper.put(Constant.PREF_NAME, it) }
+                    user.email?.let { prefHelper.put(Constant.PREF_EMAIL, it) }
+                    prefHelper.put(Constant.PREF_IS_LOGIN,true)
+                }
+
+            }
+        }
     }
 
     private fun validateEmail(email:String): Boolean{

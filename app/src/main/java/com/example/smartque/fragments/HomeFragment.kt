@@ -10,6 +10,8 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.smartque.databinding.FragmentHomeBinding
+import com.example.smartque.helper.Constant
+import com.example.smartque.helper.PrefHelper
 import com.example.smartque.viewmodels.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -29,27 +31,22 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
+    private lateinit var prefHelper: PrefHelper
 
-    private val authState = FirebaseAuth.AuthStateListener { firebaseAuth ->
-        val user = firebaseAuth.currentUser
-        if(user == null){
-            this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment())
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        initViews()
         auth = Firebase.auth
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding.lifecycleOwner =this
         binding.viewModel = viewModel
-
+        prefHelper = PrefHelper(requireContext())
+        initViews()
         viewModel.value.observe(
-            viewLifecycleOwner, Observer
+            viewLifecycleOwner,
             { navigate ->
                 if (navigate != null) {
                     this.findNavController().navigate(
@@ -65,30 +62,9 @@ class HomeFragment : Fragment() {
     private fun initViews() {
         val name = binding.profileName
         val email = binding.profileEmail
-        val db = FirebaseFirestore.getInstance()
-        val userReference = db.collection("user")
-        val uid = auth.currentUser?.uid
-        userReference.document(uid!!).get().addOnCompleteListener{task->
-            if (task.isSuccessful){
-                val data = task.result.data
-            }
-
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        FirebaseAuth.getInstance().addAuthStateListener(authState)
-    }
-
-    override fun onStop() {
-        super.onStop()
-            FirebaseAuth.getInstance().removeAuthStateListener(authState)
+        // read from sharedPreference
+        name.text= prefHelper.getString(Constant.PREF_NAME)
+        email.text = prefHelper.getString(Constant.PREF_EMAIL)
     }
 
     override fun onDestroyView() {

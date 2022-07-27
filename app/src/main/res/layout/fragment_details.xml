@@ -17,7 +17,7 @@
             android:id="@+id/hi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hi"
+            android:text="@string/cheers"
             android:textSize="24sp"
             android:textColor="#ffffff"
             android:layout_marginTop="64dp"
@@ -25,6 +25,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Robin"
+            android:textSize="24sp"
+            android:textColor="#ffffff"
+            android:layout_marginStart="@dimen/small_spacing"
+            app:layout_constraintStart_toEndOf="@+id/hi"
+            app:layout_constraintTop_toTopOf="@+id/hi"/>
 
         <TextView
             android:layout_width="wrap_content"

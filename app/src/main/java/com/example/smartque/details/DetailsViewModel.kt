@@ -4,11 +4,12 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 import com.example.smartque.R
 import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
 
-class DetailsViewModel(val value: Int,val application: Application) {
+class DetailsViewModel(val value: Int,val application: Application): ViewModel() {
     //private var time = System.currentTimeMillis()
     //private val timeInHours = TimeUnit.MILLISECONDS.toHours(time)
     //private val auth = FirebaseAuth.getInstance().currentUser
