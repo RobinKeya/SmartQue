@@ -1,4 +1,4 @@
-package com.example.smartque.auth
+package com.example.smartque
 
 import android.os.Bundle
 import android.util.Patterns
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.smartque.R
 import com.example.smartque.databinding.FragmentLoginBinding
 import com.example.smartque.helper.Constant
 import com.example.smartque.helper.PrefHelper

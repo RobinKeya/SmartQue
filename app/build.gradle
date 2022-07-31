@@ -24,19 +24,19 @@ buildFeatures{
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-//    flavorDimentions "user"
-//    productFlavors{
-//        admin{
-//            dimention "user"
-//            manifestPlaceholders = [appLabel : "SmartQue Admnin"]
+    flavorDimensions "user"
+    productFlavors{
+        admin{
+            dimension "user"
+            manifestPlaceholders = [appLabel : "SmartQue Admin"]
 //            applicationIdSuffix ".admin"
-//        }
-//        customer{
-//            dimention "user"
-//            manifestPlaceholders = [appLabel : "SmartQue"]
+        }
+        customer{
+            dimension "user"
+            manifestPlaceholders = [appLabel : "SmartQue"]
 //            applicationIdSuffix ".customer"
-//        }
-//    }
+        }
+    }
 
     buildTypes {
         release {
@@ -53,6 +53,7 @@ buildFeatures{
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     compileSdkVersion 31
     buildToolsVersion '31.0.0'

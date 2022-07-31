@@ -46,9 +46,6 @@
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
         <action
-            android:id="@+id/action_profileFragment_to_supportFragment"
-            app:destination="@id/supportFragment" />
-        <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment"
@@ -59,11 +56,6 @@
         android:name="com.example.smartque.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/supportFragment"
-        android:name="com.example.smartque.SupportFragment"
-        android:label="fragment_support"
-        tools:layout="@layout/fragment_support" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.smartque.LoginFragment"

@@ -1,16 +1,12 @@
 package com.example.smartque
 
-import android.content.Context
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import androidx.navigation.ui.setupWithNavController
 import com.example.smartque.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -54,13 +50,4 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
-
-//    override fun onStart() {
-//        super.onStart()
-//        //Check if user is signed in.
-//        val currentUser = auth.currentUser
-//        if(currentUser !=null){
-//            reload()
-//        }
-//    }
 }

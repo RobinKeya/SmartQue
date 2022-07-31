@@ -1,12 +1,10 @@
-package com.example.smartque.fragments
+package com.example.smartque
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.smartque.databinding.FragmentHomeBinding
@@ -15,7 +13,6 @@ import com.example.smartque.helper.PrefHelper
 import com.example.smartque.viewmodels.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 /**
@@ -50,7 +47,9 @@ class HomeFragment : Fragment() {
             { navigate ->
                 if (navigate != null) {
                     this.findNavController().navigate(
-                        HomeFragmentDirections.actionFirstFragmentToSecondFragment(navigate)
+                        HomeFragmentDirections.actionFirstFragmentToSecondFragment(
+                            navigate
+                        )
                     )
                     viewModel.navigationComplete()
                 }
@@ -60,6 +59,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViews() {
+
         val name = binding.profileName
         val email = binding.profileEmail
         // read from sharedPreference

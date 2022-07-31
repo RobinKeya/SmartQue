@@ -80,4 +80,13 @@
     <string name="cancel">Cancel</string>
     <string name="_100b">100B</string>
     <string name="cheers">Cheers</string>
+    <string name="profile_picture">profile picture</string>
+    <string name="users_image">users Image</string>
+    <string name="geofences">Geofences</string>
+    <string name="maps_image">Maps image</string>
+    <string name="report_image">Report image</string>
+    <string name="reports">Reports</string>
+    <string name="forum_image">Forum Image</string>
+    <string name="open_forum">Open Forum</string>
+    <string name="person_icon">person Icon</string>
 </resources>

@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.smartque.databinding.FragmentDetailsBinding
 import com.example.smartque.details.DetailsViewModel
 import com.example.smartque.details.DetailsViewModelFactory
@@ -39,7 +37,8 @@ class DetailsFragment : Fragment() {
         val app = requireNotNull(activity).application!!
         viewModelFactory = DetailsViewModelFactory(args,app)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DetailsViewModel::class.java)
-        
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
         return binding.root
 
     }
