@@ -108,6 +108,7 @@
         android:layout_marginStart="@dimen/small_spacing"
         android:clickable="true"
         android:focusable="true"
+        android:minHeight="48dp"
         android:text="@string/signup"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@id/to_sign"

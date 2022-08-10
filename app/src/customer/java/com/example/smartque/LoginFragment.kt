@@ -33,8 +33,8 @@ class LoginFragment : Fragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater)
         auth = Firebase.auth
-        initViews()
         prefHelper = PrefHelper(requireContext())
+        initViews()
         return binding.root
 
     }

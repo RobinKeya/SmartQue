@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.smartque.R
+import com.google.firebase.firestore.FirebaseFirestore
 
 class DetailsViewModel(val value: Int,val application: Application): ViewModel() {
     //private var time = System.currentTimeMillis()
@@ -14,6 +15,12 @@ class DetailsViewModel(val value: Int,val application: Application): ViewModel()
     private val _selectedCard = MutableLiveData<Int>()
     val selectedCard : LiveData<Int>
     get() = _selectedCard
+    private val ticketNumber: String=""
+    private val numberInQ:Int=0
+    private val timeInQ:Int=0
+
+    private val db = FirebaseFirestore.getInstance().collection("services").get()
+
     init {
         _selectedCard.value = value
     }

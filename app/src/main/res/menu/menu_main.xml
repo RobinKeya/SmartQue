@@ -14,10 +14,6 @@
         app:showAsAction="never"
         android:icon="@drawable/profile"/>
 <item
-        android:id="@+id/action_placeholder"
-        android:title=""
-        app:showAsAction="never" />
-<item
         android:id="@+id/supportFragment"
         android:title="@string/support"
         app:showAsAction="never"

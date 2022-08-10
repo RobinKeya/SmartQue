@@ -89,4 +89,7 @@
     <string name="forum_image">Forum Image</string>
     <string name="open_forum">Open Forum</string>
     <string name="person_icon">person Icon</string>
+    <string name="call_button">call_button</string>
+    <string name="send_message_btn">send_message_btn</string>
+    <string name="send_message">Send Message</string>
 </resources>
