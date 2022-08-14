@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
 
     private fun initViews() {
         binding.toSignUp.setOnClickListener {
-            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
         }
         binding.loginBtn.setOnClickListener{
             showDialog()

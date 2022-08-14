@@ -4,26 +4,33 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/content_main.xml" value="0.2293739028671738" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_geofence.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_login.xml" value="0.12894736842105264" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_settings.xml" value="0.153125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/admin/res/layout/fragment_sign_up.xml" value="0.12894736842105264" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/content_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_home.xml" value="0.12894736842105264" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_profile.xml" value="0.18" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_settings.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/customer/res/layout/fragment_support.xml" value="0.12894736842105264" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/add_person.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/button_cancel_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/edittext_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_10k_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_apps_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_circle_notifications_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_contact_support_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_dark_mode_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.13914473684210527" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.13914473684210527" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2203125" />
@@ -32,6 +39,7 @@
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/profile.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/receipt_background.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/send_message_bg.xml" value="0.2203125" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/top_background.xml" value="0.2203125" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_details.xml" value="0.22" />
@@ -41,6 +49,7 @@
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_settings.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/layout/fragment_support.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/RobinKeya/AndroidStudioProjects/SmartQue/app/src/main/res/menu/menu_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/baseline_logout_24.xml" value="0.1925" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/button_cancel_bg.xml" value="0.2115" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SmartQue/app/src/main/res/drawable/ic_baseline_apps_24.xml" value="0.2115" />

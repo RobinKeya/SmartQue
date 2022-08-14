@@ -22,7 +22,7 @@
             android:text="@string/support"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:paddingTop="@dimen/large_spacing"
+            android:layout_marginTop="@dimen/medium_spacing"
             android:textColor="#ffff"
             android:layout_marginStart="@dimen/normal_spacing"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="You can Either Call or \n Send message for support or Enquiries"
+            android:text="@string/call_or_send_message"
             android:textSize="20sp"
             android:textColor="#ffff"
             android:layout_marginBottom="@dimen/medium_spacing"
@@ -41,38 +41,19 @@
             app:layout_constraintTop_toBottomOf="@+id/support_title"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/call_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="@dimen/normal_spacing"
-        android:layout_marginEnd="@dimen/normal_spacing"
-        android:layout_marginTop="@dimen/medium_spacing"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_constraint_layout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/call_text"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="@dimen/normal_spacing"/>
-
         <ImageView
             android:id="@+id/call_btn"
             android:layout_width="wrap_content"
-            android:layout_height="61dp"
-            android:layout_gravity="center"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/call_button"
             android:paddingStart="@dimen/normal_spacing"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_baseline_call_24"
-            tools:ignore="RtlSymmetry" />
-    </LinearLayout>
+            tools:ignore="RtlSymmetry"
+            android:layout_marginTop="@dimen/normal_spacing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_constraint_layout"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -80,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/call_linear_layout">
+        app:layout_constraintTop_toBottomOf="@+id/call_btn">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"

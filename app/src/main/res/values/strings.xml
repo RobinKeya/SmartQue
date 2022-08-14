@@ -92,4 +92,12 @@
     <string name="call_button">call_button</string>
     <string name="send_message_btn">send_message_btn</string>
     <string name="send_message">Send Message</string>
+    <string name="users">Users</string>
+    <string name="add_geofence">Add Geofence</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">latitude</string>
+    <string name="add_on_map_instead">Use map instead?</string>
+    <string name="map">Map</string>
+    <string name="add_geofence">Add Geofence</string>
+    <string name="call_or_send_message">Call or Send Message</string>
 </resources>

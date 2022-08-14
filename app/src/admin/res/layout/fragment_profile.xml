@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ProfileFragment">
+    tools:context=".fragments.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_constraint_layout"
@@ -21,7 +21,7 @@
             android:textSize="24sp"
             android:textColor="#ffffff"
             android:layout_marginStart="@dimen/normal_spacing"
-            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_marginTop="64dp"
             android:layout_marginBottom="@dimen/normal_spacing"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             android:id="@+id/to_editProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_spacing"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="@dimen/normal_spacing"
             android:clickable="true"
             android:focusable="true"
@@ -76,9 +76,7 @@
                         android:layout_marginStart="@dimen/normal_spacing"
                         android:layout_marginTop="@dimen/normal_spacing"
                         android:src="@drawable/profile"
-                        android:layout_marginBottom="@dimen/small_spacing"
-
-                        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:contentDescription="@string/profile_image"/>
 
@@ -98,8 +96,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/small_spacing"
                         tools:text="placeholder@gmail.com"
-                        android:layout_marginBottom="@dimen/small_spacing"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/profile_name"
                         app:layout_constraintStart_toEndOf="@+id/profile_img"
                         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
@@ -192,16 +188,13 @@
                         android:layout_marginStart="@dimen/normal_spacing"
                         app:layout_constraintStart_toEndOf="@+id/dark_mode_image"
                         app:layout_constraintTop_toTopOf="@+id/dark_mode_image"/>
-
                     <com.google.android.material.switchmaterial.SwitchMaterial
                         android:id="@+id/dark_mode_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/normal_spacing"
-                        android:layout_marginBottom="@dimen/small_spacing"
-                        app:layout_constraintBottom_toBottomOf="@+id/dark_mode_text"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/dark_mode_text" />
+                        app:layout_constraintTop_toTopOf="@+id/dark_mode_text"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

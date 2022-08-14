@@ -19,7 +19,6 @@ class DetailsFragment : Fragment() {
     private lateinit var viewModel: DetailsViewModel
     private lateinit var viewModelFactory: DetailsViewModelFactory
     private var _binding: FragmentDetailsBinding? = null
-    val args = DetailsFragmentArgs.fromBundle(requireArguments()).value
     private lateinit var prefHelper: PrefHelper
 
     // This property is only valid between onCreateView and
@@ -35,6 +34,7 @@ class DetailsFragment : Fragment() {
         prefHelper = PrefHelper(requireContext())
         binding.name.text = prefHelper.getString(Constant.PREF_NAME)
         val app = requireNotNull(activity).application!!
+        val args = DetailsFragmentArgs.fromBundle(requireArguments()).value
         viewModelFactory = DetailsViewModelFactory(args,app)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DetailsViewModel::class.java)
         binding.viewModel = viewModel
@@ -42,11 +42,6 @@ class DetailsFragment : Fragment() {
         return binding.root
 
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

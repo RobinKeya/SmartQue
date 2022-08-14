@@ -6,33 +6,31 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/HomeFragment"
-        android:name="com.example.smartque.HomeFragment"
-        android:label="@string/first_fragment_label"
+        android:id="@+id/homeFragment"
+        android:name="com.example.smartque."
+        android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_HomeFragment_to_DetailsFragment"
             app:destination="@id/DetailsFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_left" />
-        <action
-            android:id="@+id/action_HomeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/DetailsFragment"
         android:name="com.example.smartque.DetailsFragment"
-        android:label="@string/second_fragment_label"
+        android:label="DetailsFragment"
         tools:layout="@layout/fragment_details">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/HomeFragment"
+            app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right" />
+            app:exitAnim="@anim/slide_out_right"
+            app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="value"
             app:argType="integer" />
@@ -73,8 +71,8 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_loginFragment_to_HomeFragment"
-            app:destination="@id/HomeFragment"
-            app:popUpTo="@id/HomeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"

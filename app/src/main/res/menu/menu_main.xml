@@ -4,7 +4,7 @@
     tools:context="com.example.smartque.MainActivity">
 
     <item
-        android:id="@+id/HomeFragment"
+        android:id="@+id/homeFragment"
         android:title="@string/home"
         app:showAsAction="never"
         android:icon="@drawable/ic_baseline_home_24"/>

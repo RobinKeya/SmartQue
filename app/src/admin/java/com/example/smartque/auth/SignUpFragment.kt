@@ -1,4 +1,4 @@
-package com.example.smartq.auth
+package com.example.smartque.auth
 
 import android.os.Bundle
 import android.util.Patterns
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.smartq.R
-import com.example.smartq.databinding.FragmentSignUpBinding
-import com.example.smartq.models.User
+import com.example.smartque.R
+import com.example.smartque.databinding.FragmentSignUpBinding
+import com.example.smartque.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore

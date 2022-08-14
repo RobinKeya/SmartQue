@@ -7,6 +7,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.navigation.ui.setupWithNavController
 import com.example.smartque.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 //        appBarConfiguration = AppBarConfiguration(navController.graph)
 //        setupActionBarWithNavController(navController, appBarConfiguration)
+        navController.addOnDestinationChangedListener{_,destination,_ ->
+            if(destination.id == R.id.loginFragment || destination.id ==R.id.signUpFragment){
+                binding.content.bottomAppbar.visibility = View.GONE
+            }
+        }
         binding.content.bottomAppbar.setupWithNavController(navController)
 
     }

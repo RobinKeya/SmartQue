@@ -1,14 +1,13 @@
-package com.example.smartque
+package com.example.smartque.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.smartque.HomeFragmentDirections
 import com.example.smartque.databinding.FragmentHomeBinding
 import com.example.smartque.helper.Constant
 import com.example.smartque.helper.PrefHelper
@@ -38,18 +37,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         auth = Firebase.auth
-        //_binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home, container,false)
-        _binding = FragmentHomeBinding.inflate(inflater)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding.lifecycleOwner =this
         binding.viewModel = viewModel
         prefHelper = PrefHelper(requireContext())
         initViews()
-        viewModel.value.observe(viewLifecycleOwner, Observer { value->
-            if (value != null){
-
+        viewModel.value.observe(
+            viewLifecycleOwner,
+            { navigate ->
+                if (navigate != null) {
+                    this.findNavController().navigate(
+                        HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                            navigate
+                        )
+                    )
+                    viewModel.navigationComplete()
+                }
             }
-        })
+        )
         return binding.root
     }
 
