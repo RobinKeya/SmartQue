@@ -27,7 +27,7 @@ class SupportFragment : Fragment() {
     private fun initViews() {
         binding.callBtn.setOnClickListener {
             val callIntent = Intent(Intent.ACTION_CALL)
-            callIntent.data = Uri.parse("tel:"+254716943633)
+            callIntent.data = Uri.parse("tel:"+"+254716943633")
             startActivity(callIntent)
         }
     }

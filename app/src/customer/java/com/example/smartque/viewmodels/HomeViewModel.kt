@@ -20,7 +20,7 @@ class HomeViewModel: ViewModel() {
         _value.value = x
         saveService(x)
     }
-
+    //review ticket number logic.
     private fun saveService(x:Int) {
         val db = FirebaseFirestore.getInstance()
         val serviceReference = db.collection("service")

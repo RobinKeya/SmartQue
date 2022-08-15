@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="You're in Deposit Queue"
-                android:text="@string/que_in"
+                android:text="@{viewModel.displayCardName}"
                 android:textSize="20sp"
                 android:textColor="#ffffff"
                 android:layout_marginBottom="@dimen/medium_spacing"
@@ -140,6 +140,7 @@
                     app:layout_constraintTop_toTopOf="@id/appr_time_in_q_tv" />
 
                 <Button
+                    android:id="@+id/cancel_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/medium_spacing"

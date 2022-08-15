@@ -33,8 +33,7 @@ class DetailsViewModel(val value: Int,val application: Application): ViewModel()
                 2->R.string.loans
                 3->R.string.open_account
                 4->R.string.inquiries
-                5->R.string.insurance
-                else->return@map
+                else->R.string.insurance
             }
         ))
     }
